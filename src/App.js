@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react';
 import MovieTable from './pages/MovieTable/MovieTable';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [movieData,setMovieData] = useState(null);
@@ -11,6 +11,10 @@ function App() {
     async function fetchMovieData() {
       const response = await fetch('https://skyit-coding-challenge.herokuapp.com/movies');
       const data = await response.json();
+      //format rating to percentage format
+      for (let i = 0; i < data.length; i++) {
+        data[i].rating = (data[i].rating * 20).toFixed(2) + '%';        
+      }
       setMovieData(data);
     }
     fetchMovieData();
@@ -18,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <header className="page-header">Favourite Movie List</header>
       <MovieTable movieData={movieData} />
     </div>
   );

@@ -1,0 +1,14 @@
+.movie-table {
+    .card {
+        padding: 6rem;
+        padding-top: 2rem;
+
+        .p-column-filter {
+            width: 90%;
+        }
+        
+        .p-column-title, .p-inputtext, .p-placeholder, td {
+            font-size: 0.9rem;
+        }
+    }
+}
