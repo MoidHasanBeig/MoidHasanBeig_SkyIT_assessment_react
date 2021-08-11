@@ -1,0 +1,70 @@
+.details-modal {
+    height: 80% !important;
+    top: 10% !important;
+    margin-right: 2rem;
+    width: 40vw !important;
+    padding: 1rem;
+    padding-bottom: 5rem;
+
+    &::after {
+        content: 'All movie data are from Wikipedia and IMDB';
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        font-size: 0.85rem;
+    }
+
+    .p-sidebar-header::before {
+        content: 'MOVIE DETAILS';
+        position: absolute;
+        left: 2rem;
+        font-weight: bold;
+    }
+
+    .details-sub-container {
+        background-color: #88A2AA;
+        width: 100%;
+        min-height: 55vh;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        font-family: 'Lora', serif;
+
+        .movie-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 0.5rem;
+        }
+
+        .movie-director {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .movie-genre, .movie-cast {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .pill {
+            background-color: #DEE2E6;
+            border-radius: 500px;
+            padding: 0 0.4rem;
+            margin: 0.2rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            width: max-content;
+        }
+
+        .movie-plot {
+            margin-top: 1rem;
+
+            .plot-text {
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+}

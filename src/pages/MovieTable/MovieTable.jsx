@@ -2,11 +2,11 @@ import React, { useState, useRef } from 'react';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { Sidebar } from 'primereact/sidebar';
 
 import { directorBodyTemplate, renderDirectorFilter } from '../../components/DirectorField/DirectorField';
 import { certificationBodyTemplate, renderCertificationFilter } from '../../components/CertificationField/CertificationField';
 import { textBodyTemplate } from '../../components/TextField/TextField';
+import DetailsModal from '../../components/DetailsModal/DetailsModal';
 
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -27,23 +27,24 @@ const MovieTable = ({ movieData }) => {
     return (
         <div className="movie-table">
             <div className="card">
-                <div style={{padding:'3rem'}}>
-                    <Sidebar visible={visibleRight} position="right" onHide={() => setVisibleRight(false)}>
-                        <h3>Left Sidebar</h3>
-                    </Sidebar>
-                </div>
-                <DataTable 
-                    ref={myRef} 
+                <DetailsModal 
+                    visibleRight={visibleRight} 
+                    setVisibleRight={setVisibleRight} 
+                    selectedMovies={selectedMovies}
+                />
+                <DataTable
+                    ref={myRef}
                     value={movieData}
-                    className="p-datatable-customers" 
-                    dataKey="_id" 
-                    rowHover 
+                    className="p-movie-table"
+                    dataKey="_id"
+                    rowHover
                     onRowSelect={() => setVisibleRight(true)}
-                    selection={selectedMovies} 
+                    selection={selectedMovies}
                     onSelectionChange={e => setSelectedMovies(e.value)}
-                    paginator rows={10} 
+                    paginator rows={10}
                     emptyMessage="No movies found"
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink">
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
+                >
                     <Column selectionMode="single" style={{ width: '3em' }} />
                     <Column field="title" header="Title" body={(data) => textBodyTemplate(data.title)} filter filterPlaceholder="Search by title" />
                     <Column field="releaseDate" header="Year" body={(data) => textBodyTemplate(data.releaseDate)} filter filterPlaceholder="Search by year" />
