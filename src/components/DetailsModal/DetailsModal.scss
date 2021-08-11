@@ -49,13 +49,15 @@
             flex-direction: row;
             flex-wrap: wrap;
             margin-top: 1rem;
+            font-size: 1vw;
+            align-items: center;
         }
         
         .pill {
             background-color: #DEE2E6;
             border-radius: 500px;
-            padding: 0 0.6vw;
-            margin: 0.4vw;
+            padding: 0.1rem 0.8rem;
+            margin: 0.2rem;
             font-size: 0.9vw;
             white-space: nowrap;
             width: max-content;
@@ -63,6 +65,7 @@
 
         .movie-plot {
             margin-top: 1rem;
+            font-size: 1vw;
 
             .plot-text {
                 font-size: 0.9vw;
