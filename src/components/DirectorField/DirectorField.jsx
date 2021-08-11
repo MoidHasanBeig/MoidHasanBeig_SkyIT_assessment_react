@@ -24,7 +24,7 @@ const directorBodyTemplate = (rowData) => {
 const directorItemTemplate = (option) => {
     return (
         <div className="p-multiselect-director-option">
-            <span style={{ verticalAlign: 'middle', marginLeft: '.5em' }}>{option}</span>
+            <span style={{ verticalAlign: 'middle', marginLeft: '.5em', fontSize: '0.9rem' }}>{option}</span>
         </div>
     );
 }

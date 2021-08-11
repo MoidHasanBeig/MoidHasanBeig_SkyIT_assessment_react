@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Sidebar } from 'primereact/sidebar';
 
 import { directorBodyTemplate, renderDirectorFilter } from '../../components/DirectorField/DirectorField';
 import { certificationBodyTemplate, renderCertificationFilter } from '../../components/CertificationField/CertificationField';
@@ -16,6 +17,7 @@ const MovieTable = ({ movieData }) => {
     const [selectedMovies, setSelectedMovies] = useState(null);
     const [selectedDirectors, setSelectedDirectors] = useState(null);
     const [selectedCertifications, setSelectedCertifications] = useState(null);
+    const [visibleRight, setVisibleRight] = useState(false);
 
     const myRef = useRef(null);
 
@@ -25,10 +27,22 @@ const MovieTable = ({ movieData }) => {
     return (
         <div className="movie-table">
             <div className="card">
-                <DataTable ref={myRef} value={movieData}
-                    className="p-datatable-customers" dataKey="_id" rowHover
-                    selection={selectedMovies} onSelectionChange={e => setSelectedMovies(e.value)}
-                    paginator rows={10} emptyMessage="No movies found"
+                <div style={{padding:'3rem'}}>
+                    <Sidebar visible={visibleRight} position="right" onHide={() => setVisibleRight(false)}>
+                        <h3>Left Sidebar</h3>
+                    </Sidebar>
+                </div>
+                <DataTable 
+                    ref={myRef} 
+                    value={movieData}
+                    className="p-datatable-customers" 
+                    dataKey="_id" 
+                    rowHover 
+                    onRowSelect={() => setVisibleRight(true)}
+                    selection={selectedMovies} 
+                    onSelectionChange={e => setSelectedMovies(e.value)}
+                    paginator rows={10} 
+                    emptyMessage="No movies found"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink">
                     <Column selectionMode="single" style={{ width: '3em' }} />
                     <Column field="title" header="Title" body={(data) => textBodyTemplate(data.title)} filter filterPlaceholder="Search by title" />
