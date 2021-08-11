@@ -20,7 +20,7 @@ const DetailsModal = ({ visibleRight, setVisibleRight, selectedMovies }) => {
                         })}
                     </div>
                     <div className="movie-plot">
-                        Plot: <br /><span className="plot-text">{selectedMovies && selectedMovies.plot}</span>
+                        Plot: <br/><div className="plot-text">{selectedMovies && selectedMovies.plot}</div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,6 @@
 .details-modal {
+    // Using !important here since we can only override the default style
+    // either by this or using inline styles
     height: 80% !important;
     top: 10% !important;
     margin-right: 2rem;
@@ -63,6 +65,7 @@
 
             .plot-text {
                 font-size: 0.8rem;
+                margin-top: 0.5rem;
             }
         }
     }
