@@ -10,13 +10,13 @@ const DetailsModal = ({ visibleRight, setVisibleRight, selectedMovies }) => {
                     <div className="movie-title">{selectedMovies && selectedMovies.title}</div>
                     <div className="movie-director">Directed by {selectedMovies && selectedMovies.director}</div>
                     <div className="movie-cast">Cast:
-                        {selectedMovies && selectedMovies.cast.map((name) => {
-                            return <div className="cast-name pill"> {name}</div>
+                        {selectedMovies && selectedMovies.cast.map((name,i) => {
+                            return <div key={i} className="cast-name pill"> {name}</div>
                         })}
                     </div>
                     <div className="movie-genre">Genre:
-                        {selectedMovies && selectedMovies.genre.map((name) => {
-                            return <div className="genre-name pill"> {name}</div>
+                        {selectedMovies && selectedMovies.genre.map((name,i) => {
+                            return <div key={i} className="genre-name pill"> {name}</div>
                         })}
                     </div>
                     <div className="movie-plot">

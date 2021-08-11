@@ -8,7 +8,9 @@
         }
         
         .p-column-title, .p-inputtext, .p-placeholder, td {
-            font-size: 0.9rem;
+            font-size: 1vw; 
+            //using viewport width as measurement unit to make text responsive
+            //although to make it suitable for portrait mode we need to write explicit media queries
         }
     }
 }
